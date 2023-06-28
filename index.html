@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Documentation Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav id="navbar">
+      <div class="nav-head">
+        <div id="ham-icon" onclick="hamcross()">
+          <div class="ham-bars bar-1"></div>
+          <div class="ham-bars bar-2"></div>
+          <div class="ham-bars bar-3"></div>
+        </div>
+        <header>JSP Documentation</header>
+      </div>
+      <ul id="nav-menus">
+        <li><a class="nav-link" href="#Introduction_to_JSP">Introduction to JSP</a></li>
+        <li><a class="nav-link" href="#Setting_Up_the_JSP_Development_Environment">Setting Up the JSP Development Environment</a></li>
+        <li><a class="nav-link" href="#Syntax_and_Features">Syntax and Features</a></li>
+        <li><a class="nav-link indent" href="#1._JSP_Directives">1. JSP Directives</a></li>
+        <li><a class="nav-link indent" href="#2._JSP_Scriptlet">2. JSP Scriptlet</a></li>
+        <li><a class="nav-link indent" href="#3._JSP_Expressions">3. JSP Expressions</a></li>
+        <li><a class="nav-link indent" href="#4._JSP_Actions">4. JSP Actions</a></li>
+        <li><a class="nav-link" href="#JSP_Tag_Libraries">JSP Tag Libraries</a></li>
+        <li><a class="nav-link indent" href="#1._JSTL">1. JSTL</a></li>
+        <li><a class="nav-link indent" href="#2._Apache_Taglibs">2. Apache Taglibs</a></li>
+        <li><a class="nav-link indent" href="#3._Spring_MVC_Tag_Library">3. Spring MVC Tag Library</a></li>
+        <li><a class="nav-link bottom-border" href="#Conclusion">Conclusion</a></li>
+      </ul>
+    </nav>  
+    <main id="main-doc">
+      <section class="main-section" id="Introduction_to_JSP">
+        <header>Introduction to JSP</header>
+        <article>
+          <p>JavaServer Pages (JSP) is a technology that allows developers to create dynamic web content using Java. With JSP, you can combine HTML or XML markup with embedded Java code to generate dynamic web pages. JSP is widely used for building web applications due to its simplicity and seamless integration with Java.</p>
+          <p>JSP pages are compiled into servlets and executed on the server side. The resulting HTML is then sent to the client's web browser. This enables developers to build interactive and data-driven web applications with ease.</p>
+        </article>
+      </section>
+
+      <section class="main-section" id="Setting_Up_the_JSP_Development_Environment">
+        <header>Setting Up the JSP Development Environment</header>
+        <article>
+          <p>To start developing JSP applications, you need to set up a development environment. Follow these steps:</p>
+          <p>
+            <ol>
+                <li><b>Install a Java Development Kit (JDK):</b> If you haven't already done so, download and install a JDK. JSP requires a JDK to compile and execute the Java code embedded in the pages. You can download the latest JDK from the Oracle website.
+                </li>
+                <li><b>Choose an Integrated Development Environment (IDE):</b> Select an IDE that supports JSP development. Some popular choices are Eclipse, IntelliJ IDEA, and NetBeans. These IDEs provide built-in support for JSP, including syntax highlighting and code completion.
+                </li>
+                <li><b>Set Up a Web Server or Servlet Container:</b> You need a web server or a servlet container to execute JSP pages and serve the generated HTML to clients. Apache Tomcat, Jetty, and GlassFish are some popular choices. Download and install the web server or servlet container of your choice, and configure it with your development environment.
+                </li>
+            </ol>
+          </p>
+        </article>
+      </section>
+
+      <section class="main-section" id="Syntax_and_Features">
+        <header>Syntax and Features</header>
+      </section>
+
+      <section class="main-section" id="1._JSP_Directives">
+        <header class="sub-head">1. JSP Directives</header>
+        <article>
+          <p>JSP directives provide instructions to the container on how to handle the JSP page. The following directives are commonly used:</p>
+          <code><%@ page language="java" contentType="text/html; charset=UTF-8" %>
+            <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+            </code>
+          <p>
+            <ul>
+                <li>The page directive sets the language and content type for the page. It also allows you to configure session management, error handling, and more.</li>
+                <li>The taglib directive imports a custom tag library, such as the JSTL (JavaServer Pages Standard Tag Library). Tag libraries provide reusable components and custom tags that enhance the functionality of your JSP pages.</li>
+            </ul>
+          </p>
+        </article>
+      </section>
+
+      <section class="main-section" id="2._JSP_Scriptlet">
+        <header class="sub-head">2. JSP Scriptlet</header>
+        <article>
+            <p>JSP scriptlets allow you to include Java code within your JSP page. They are enclosed within <% %> tags. For example:</p>
+            <code><%
+              int x = 10;
+              String message = "Hello, JSP!";
+              out.println(message);
+            %>
+            </code>
+            <p>Scriptlets are useful for performing computations, accessing databases, and manipulating data before rendering the HTML output.</p>
+        </article>
+    </section>
+    
+    <section class="main-section" id="3._JSP_Expressions">
+        <header class="sub-head">3. JSP Expressions</header>
+        <article>
+            <p>JSP expressions are used to embed Java expressions within the HTML output. They are enclosed within <%= %> tags. For example:</p>
+            <code><p>The value of x is <%= x %></p>
+            </code>
+            <p>Expressions are convenient for dynamically inserting values, such as variables or function results, directly into the HTML output.
+            </p>
+        </article>
+      </section>
+      
+      <section class="main-section" id="4._JSP_Actions">
+        <header class="sub-head">4. JSP Actions</header>
+        <article>
+          <p>JSP actions are XML-like tags used to perform specific tasks within a JSP page. Some common actions include:
+          </p>
+          <code>&lt;jsp:include page="header.jsp" /><br>
+            &lt;jsp:forward page="error.jsp" /><br>
+            &lt;jsp:useBean id="user" class="com.example.User" scope="request" />
+            </code>
+          <p>
+            <ul>
+                <li>The jsp:include action includes the contents of another JSP page at the specified location.</li>
+                <li>The jsp:forward action forwards the request to another resource, such as another JSP page or a servlet.</li>
+                <li>The jsp:useBean action instantiates a JavaBean and makes it available within the specified scope (e.g., request, session, or application).</li>
+            </ul>
+          </p>
+        </article>
+      </section>
+
+      <section class="main-section" id="JSP_Tag_Libraries">
+        <header>JSP Tag Libraries</header>
+        <article>
+          <p>JSP tag libraries provide a set of custom tags that extend the functionality of JSP and simplify the development process. These tags encapsulate complex behavior and can be reused across multiple JSP pages. There are various tag libraries available for different purposes. Let's explore a few popular ones:</p>
+        </article>
+      </section>
+
+      <section class="main-section" id="1._JSTL">
+        <header class="sub-head">1. JSTL</header>
+        <article>
+          <p>JSTL (JavaServer Pages Standard Tag Library) is a standard tag library for JSP that provides a set of tags for common tasks, such as iteration, conditionals, and formatting. It helps in reducing scriptlet code within JSP pages and promotes a more declarative programming style. JSTL tags are defined in the http://java.sun.com/jsp/jstl/core namespace.
+          </p>
+          <p>Here's an example of using JSTL tags:</p>
+          <CODE>&lt;%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> <br>
+            &lt;c:forEach items="${bookList}" var="book"> <br>
+                &lt;p>${book.title} by ${book.author}&lt;/p&gt; <br>
+            &lt;/c:forEach>
+        </CODE>
+        <p>In the above code snippet, the c:forEach tag is used to iterate over a collection (bookList) and display the title and author of each book.</p>
+        </article>
+      </section>
+      
+      <section class="main-section" id="2._Apache_Taglibs">
+        <header class="sub-head">2. Apache Taglibs</header>
+        <article>
+          <p>Apache Taglibs is a collection of tag libraries maintained by the Apache Software Foundation. It includes various libraries for different purposes, such as database access, form processing, and XML manipulation.</p>
+          <p>One popular tag library from Apache Taglibs is the Apache Tiles library. Tiles provides a templating framework for creating reusable page layouts. It allows you to define a master template and modularize your JSP pages by using tiles, which are small fragments of content. This promotes code reusability and maintainability.</p>
+        </article>
+      </section>
+      
+      <section class="main-section" id="3._Spring_MVC_Tag_Library">
+        <header class="sub-head">3. Spring MVC Tag Library</header>
+        <article>
+          <p>If you're using the Spring MVC framework for your JSP application, you can leverage the Spring MVC tag library. This tag library provides tags for form handling, input validation, internationalization, and more. It integrates seamlessly with Spring MVC and simplifies the development of forms and form-related tasks.</p>
+          <p>Here's an example of using Spring MVC tags:</p>
+          <code><pre>
+&lt;%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+&lt;form:form action="saveUser" method="post" modelAttribute="user">
+    &lt;form:input path="username" />
+    &lt;form:password path="password" />
+    &lt;form:button type="submit">Save</form:button>
+&lt;/form:form></pre>
+            </code>
+          <p>In the above code snippet, the Spring MVC tags (form:form, form:input, form:password, form:button) are used to generate form elements and bind them to a model attribute (user).</p>
+          <p>These are just a few examples of tag libraries available for JSP. Depending on your specific requirements, you can explore and integrate other tag libraries that align with your project needs.</p>
+        </article>
+      </section>
+
+      <section class="main-section" id="Conclusion">
+        <header>Conclusion</header>
+        <article>
+          <p>JSP is a powerful technology for building dynamic web applications. By combining Java code with HTML or XML markup, developers can create interactive and data-driven web pages. Understanding the syntax and features of JSP, as well as setting up the development environment, is crucial for getting started with JSP development.</p>
+          <p>Make sure to explore additional resources, such as JSP tag libraries and frameworks, to enhance your JSP applications further. Happy coding!
+          </p>
+        </article>
+      </section>
+
+    </main>
+    <script>
+      var c = 0;
+      function hamcross()
+      {
+        var ham_icon = document.getElementById('ham-icon');
+        var nav_menus = document.getElementById('nav-menus');
+        console.log(ham_icon);
+        if (c%2 == 0 )
+        {
+          ham_icon.style.backgroundColor = "#1c1d24";
+          nav_menus.style.visibility = 'visible';
+        }
+        else
+        {
+          ham_icon.style.backgroundColor = 'transparent';
+          nav_menus.style.visibility = 'collapse';
+        }
+        c++;
+      }
+    </script>
+</body>
+</html>
